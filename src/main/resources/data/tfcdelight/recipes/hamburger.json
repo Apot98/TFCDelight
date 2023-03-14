@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "tfc:sandwich_bread"
+    },
+    [
+      {
+        "item": "tfc:food/cooked_beef"
+      },
+      {
+        "item": "tfc:food/cooked_bear"
+      },{
+        "item": "tfc:food/cooked_horse_meat"
+      },
+      {
+        "item": "tfc:food/cooked_hyena"
+      },
+      {
+        "item": "tfc:food/cooked_wolf"
+      }
+    ],
+    {
+      "tag": "tfc:foods/cabbage"
+    },
+    {
+      "item": "tfc:food/tomato"
+    },
+    {
+      "item": "tfc:food/onion"
+    }
+  ],
+  "result": {
+    "item": "farmersdelight:hamburger"
+  }
+}

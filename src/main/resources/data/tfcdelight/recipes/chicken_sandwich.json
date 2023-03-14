@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "tfc:sandwich_bread"
+    },
+    [
+      {
+        "item": "tfc:food/cooked_chicken"
+      },
+      {
+        "item": "tfc:food/cooked_duck"
+      },
+      {
+        "item": "tfc:food/cooked_quail"
+      },
+      {
+        "item": "tfc:food/cooked_turkey"
+      }
+    ],
+    {
+      "tag": "tfc:foods/cabbage"
+    },
+    {
+      "item":  "tfc:food/carrot"
+    }
+  ],
+  "result": {
+    "item": "farmersdelight:chicken_sandwich"
+  }
+}

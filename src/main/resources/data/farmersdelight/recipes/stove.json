@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "B B",
+    "BCB"
+  ],
+  "key": {
+    "i": {
+      "item": "tfc:metal/sheet/copper"
+    },
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "C": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "result": {
+    "item": "farmersdelight:stove"
+  }
+}

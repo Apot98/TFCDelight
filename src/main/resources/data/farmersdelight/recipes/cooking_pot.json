@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B B",
+    "iWi",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "tfc:metal/sheet/copper"
+    },
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "W": {
+      "type": "tfc:fluid_item",
+      "fluid_ingredient": {
+        "ingredient": {
+          "tag": "minecraft:water"
+        },
+        "amount": 100
+      }
+    }
+  },
+  "result": {
+    "item": "farmersdelight:cooking_pot"
+  }
+}
