@@ -7,10 +7,10 @@
   ],
   "key": {
     "i": {
-      "item": "tfc:metal/sheet/copper"
+      "item": "tfc:metal/ingot/copper"
     },
     "B": {
-      "item": "minecraft:bricks"
+      "item": "minecraft:brick"
     },
     "W": {
       "type": "tfc:fluid_item",
