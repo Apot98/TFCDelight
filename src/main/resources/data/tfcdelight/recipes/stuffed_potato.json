@@ -4,49 +4,52 @@
     {
       "type": "tfc:not_rotten",
       "ingredient": {
-        "tag": "tfc:sandwich_bread"
+        "item": "tfc:food/potato"
       }
     },
     [
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "item": "tfc:food/cooked_chicken"
+          "item": "tfc:food/cooked_beef"
         }
       },
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "item": "tfc:food/cooked_duck"
+          "item": "tfc:food/cooked_bear"
         }
       },
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "item": "tfc:food/cooked_quail"
+          "item": "tfc:food/cooked_horse_meat"
         }
       },
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "item": "tfc:food/cooked_turkey"
+          "item": "tfc:food/cooked_hyena"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_wolf"
         }
       }
     ],
     {
-      "type": "tfc:not_rotten",
-      "ingredient": {
-        "item": "tfc:food/cabbage"
-      }
-    },
-    {
-      "type": "tfc:not_rotten",
-      "ingredient": {
-        "item": "tfc:food/carrot"
+      "type": "tfc:fluid_item",
+      "fluid_ingredient": {
+        "ingredient": {
+          "tag": "minecraft:milk"
+        },
+        "amount": 100
       }
     }
   ],
   "result": {
-    "item": "farmersdelight:chicken_sandwich"
+    "item": "farmersdelight:stuffed_potato"
   }
 }

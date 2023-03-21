@@ -3,16 +3,19 @@
   "cookingtime": 100,
   "experience": 0.35,
   "ingredients": [
-    [
-      {
-        "tag": "tfc:foods/meats"
-      }
-    ],
     {
-      "item": "tfc:food/cabbage"
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "tfc:foods/cooked_meats"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/cabbage"
+      }
     }
   ],
-  "recipe_book_tab": "misc",
   "result": {
     "item": "farmersdelight:cabbage_rolls"
   }

@@ -1,3 +1,5 @@
+from typing import Union
+
 from mcresources import ResourceManager, RecipeContext, utils
 from mcresources.type_definitions import ResourceIdentifier, Json
 
@@ -250,25 +252,6 @@ def blast_furnace_recipe(rm: ResourceManager, name_parts: utils.ResourceIdentifi
         'catalyst': utils.ingredient(catalyst)
     })
 
-
-def barrel_sealed_recipe(rm: ResourceManager, name_parts: utils.ResourceIdentifier, translation: str, duration: int,
-                         input_item: Optional[Json] = None, input_fluid: Optional[Json] = None,
-                         output_item: Optional[Json] = None, output_fluid: Optional[Json] = None,
-                         on_seal: Optional[Json] = None, on_unseal: Optional[Json] = None, sound: Optional[str] = None):
-    rm.recipe(('barrel', name_parts), 'tfc:barrel_sealed', {
-        'input_item': item_stack_ingredient(input_item) if input_item is not None else None,
-        'input_fluid': fluid_stack_ingredient(input_fluid) if input_fluid is not None else None,
-        'output_item': item_stack_provider(output_item) if isinstance(output_item, str) else output_item,
-        'output_fluid': fluid_stack(output_fluid) if output_fluid is not None else None,
-        'duration': duration,
-        'on_seal': on_seal,
-        'on_unseal': on_unseal,
-        'sound': sound
-    })
-    res = utils.resource_location('tfc', name_parts)
-    rm.lang('tfc.recipe.barrel.' + res.domain + '.barrel.' + res.path.replace('/', '.'), lang(translation))
-
-
 def barrel_instant_recipe(rm: ResourceManager, name_parts: utils.ResourceIdentifier, input_item: Optional[Json] = None,
                           input_fluid: Optional[Json] = None, output_item: Optional[Json] = None,
                           output_fluid: Optional[Json] = None, sound: Optional[str] = None):
@@ -300,17 +283,6 @@ def loom_recipe(rm: ResourceManager, name: utils.ResourceIdentifier, ingredient:
         'result': utils.item_stack(result),
         'steps_required': steps,
         'in_progress_texture': in_progress_texture
-    })
-
-
-def anvil_recipe(rm: ResourceManager, name_parts: utils.ResourceIdentifier, ingredient: Json, result: Json, tier: int,
-                 *rules: Rules, bonus: bool = None):
-    rm.recipe(('anvil', name_parts), 'tfc:anvil', {
-        'input': utils.ingredient(ingredient),
-        'result': item_stack_provider(result),
-        'tier': tier,
-        'rules': [r.name for r in rules],
-        'apply_forging_bonus': bonus
     })
 
 

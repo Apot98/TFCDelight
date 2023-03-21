@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RXR",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/dried_kelp"
+      }
+    },
+    "R": {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/cooked_rice"
+      }
+    },
+    "X": {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/carrot"
+      }
+    }
+  },
+  "result": {
+    "item": "farmersdelight:kelp_roll"
+  }
+}

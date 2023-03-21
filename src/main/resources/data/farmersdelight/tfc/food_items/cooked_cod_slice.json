@@ -1,9 +1,0 @@
-{
-  "ingredient": {
-    "item": "farmersdelight:cooked_cod_slice"
-  },
-  "hunger": 3,
-  "saturation": 2,
-  "decay_modifier": 0.8,
-  "protein": 1
-}

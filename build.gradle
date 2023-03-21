@@ -18,6 +18,10 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: "org.spongepowered.mixin"
 
+mixin {
+    add sourceSets.main, "tfcdelight.refmap.json"
+}
+
 version = '1.18.2-0.1.1'
 group = 'baguchan.tfcdelight' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'TFCDelight'
@@ -65,6 +69,7 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'tfcdelight'
             property "mixin.env.remapRefMap", "true"
+            arg "-mixin.config=tfcdelight.mixins.json"
             mods {
                 tfcdelight {
                     source sourceSets.main
@@ -82,6 +87,7 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'tfcdelight'
             property "mixin.env.remapRefMap", "true"
+            arg "-mixin.config=tfcdelight.mixins.json"
             mods {
                 tfcdelight {
                     source sourceSets.main
@@ -195,7 +201,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "bagu_chan",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "tfcdelight.mixins.json"
         ])
     }
 }
