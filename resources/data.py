@@ -1,7 +1,13 @@
 from enum import Enum, auto
+from recipes import fluid_ingredient
+from constants import *
 
-from mcresources import ResourceManager
+from mcresources import ResourceManager, loot_tables
+from mcresources.type_definitions import Json
+
+from constants import *
 from mcresources import utils
+
 from recipes import fluid_ingredient
 
 
@@ -75,6 +81,7 @@ def generate(rm: ResourceManager):
     food_item(rm, 'hamburger', 'farmersdelight:hamburger', Category.grain, 6, 4, 0, 1.25, protein=2, veg=3, grain=1.5)
     food_item(rm, 'mutton_wrap', 'farmersdelight:mutton_wrap', Category.grain, 5, 3, 0, 1.25, protein=2, veg=2,
               grain=1.5)
+    food_item(rm, 'mixed_salad', 'farmersdelight:mixed_salad', Category.vegetable, 5, 1, 0, 1.25, veg=3.5)
 
 
 def decayable(rm: ResourceManager, name_parts: utils.ResourceIdentifier, ingredient: utils.Json, category: Category,

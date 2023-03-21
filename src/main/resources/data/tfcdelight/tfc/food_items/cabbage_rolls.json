@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": {
-    "item": "farmersdelight:cabbage_roll"
+    "item": "farmersdelight:cabbage_rolls"
   },
   "category": "cooked_meat",
   "hunger": 4,

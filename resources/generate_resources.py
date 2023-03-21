@@ -3,9 +3,11 @@ import sys
 import traceback
 from typing import Sequence
 
-import data
 from mcresources import ResourceManager, utils
 from mcresources.type_definitions import Json
+
+import recipes
+import data
 
 
 class ModificationLoggingResourceManager(ResourceManager):

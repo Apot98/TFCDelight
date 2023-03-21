@@ -1,7 +1,9 @@
+from enum import Enum
 from typing import Union
-
+from itertools import repeat
 from mcresources import ResourceManager, RecipeContext, utils
 from mcresources.type_definitions import ResourceIdentifier, Json
+from constants import *
 
 
 def generate(rm: ResourceManager):
