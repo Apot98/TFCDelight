@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/onion"
+      }
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "tfc:sandwich_bread"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/carrot"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/cooked_chicken"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "minecraft:baked_potato"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/carrot"
+      }
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "minecraft:baked_potato"
+      }
+    }
+  ],
+  "result": {
+    "item": "farmersdelight:roast_chicken_block"
+  }
+}

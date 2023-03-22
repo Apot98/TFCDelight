@@ -27,25 +27,38 @@ displayName="TFCDelight" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="tfcdelight.png" #optional
+logoFile = "tfcdelight.png" #optional
 # A text field displayed in the mod UI
-credits="" #optional
+credits = "" #optional
 # A text field displayed in the mod UI
-authors="bagu_chan" #optional
+authors = "bagu_chan" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description='''
+description = '''
 This mod is add compat farmers delight and TerraFirmaCraft!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.tfcdelight]]
+modId = "tfc"
+mandatory = true
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies.tfcdelight]]
+modId = "farmersdelight"
+mandatory = true
+versionRange = "[1.2.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
 [[dependencies.tfcdelight]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[40,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-    ordering="NONE"
+# the modid of the dependency
+modId = "forge" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory = true #mandatory
+# The version range of the dependency
+versionRange = "[40,)" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+ordering = "NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
@@ -56,15 +69,3 @@ This mod is add compat farmers delight and TerraFirmaCraft!
     versionRange="[1.18.2,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tfcdelight]]
-modId="tfc"
-mandatory=true
-versionRange="[0,)"
-ordering="AFTER"
-side="BOTH"
-[[dependencies.tfcdelight]]
-modId = "farmersdelight"
-mandatory = true
-versionRange = "[1.2.0,)"
-ordering = "BEFORE"
-side = "BOTH"

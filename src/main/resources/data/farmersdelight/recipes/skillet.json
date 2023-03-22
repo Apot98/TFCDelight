@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ii",
+    " ii",
+    "B  "
+  ],
+  "key": {
+    "i": {
+      "item": "tfc:metal/ingot/wrought_iron"
+    },
+    "B": {
+      "item": "minecraft:brick"
+    }
+  },
+  "result": {
+    "item": "farmersdelight:skillet"
+  }
+}
