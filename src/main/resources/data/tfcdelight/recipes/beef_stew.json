@@ -1,30 +1,30 @@
 {
   "type": "farmersdelight:cooking",
-  "cookingtime": 100,
-  "experience": 0.35,
+  "cookingtime": 200,
+  "experience": 1.0,
   "ingredients": [
     [
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "item": "farmersdelight:bacon"
+          "item": "farmersdelight:beef_patty"
         }
       },
       {
         "type": "tfc:not_rotten",
         "ingredient": {
-          "tag": "tfc:foods/cooked_meats"
+          "item": "tfc:food/cooked_beef"
         }
       }
     ],
     {
-      "type": "tfc:not_rotten",
-      "ingredient": {
-        "item": "tfc:food/cabbage"
-      }
+      "item": "tfc:food/carrot"
+    },
+    {
+      "item": "tfc:food/potato"
     }
   ],
   "result": {
-    "item": "farmersdelight:cabbage_rolls"
+    "item": "farmersdelight:beef_stew"
   }
 }

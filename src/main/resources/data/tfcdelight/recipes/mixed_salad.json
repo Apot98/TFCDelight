@@ -2,13 +2,22 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "tfc/food/cabbage"
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/cabbage"
+      }
     },
     {
-      "item": "tfc:food/tomato"
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/tomato"
+      }
     },
     {
-      "item": "tfc:food/beet"
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/beet"
+      }
     },
     {
       "item": "minecraft:bowl"

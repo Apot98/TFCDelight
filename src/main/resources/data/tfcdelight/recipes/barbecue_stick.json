@@ -17,6 +17,12 @@
       {
         "type": "tfc:not_rotten",
         "ingredient": {
+          "item": "farmersdelight:beef_patty"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
           "item": "tfc:food/cooked_beef"
         }
       },

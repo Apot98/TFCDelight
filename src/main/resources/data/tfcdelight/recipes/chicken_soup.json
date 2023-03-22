@@ -1,0 +1,55 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    [
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_chicken"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_duck"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_quail"
+        }
+      },
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/cooked_turkey"
+        }
+      }
+    ],
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/carrot"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/cabbage"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "tfc:food/vegetables"
+      }
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "farmersdelight:chicken_soup"
+  }
+}

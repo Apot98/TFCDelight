@@ -4,10 +4,16 @@
     {
       "type": "tfc:not_rotten",
       "ingredient": {
-        "item": "tfc:food/potato"
+        "item": "minecraft:baked_potato"
       }
     },
     [
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "farmersdelight:beef_patty"
+        }
+      },
       {
         "type": "tfc:not_rotten",
         "ingredient": {
@@ -43,7 +49,7 @@
       "type": "tfc:fluid_item",
       "fluid_ingredient": {
         "ingredient": {
-          "tag": "minecraft:milk"
+          "fluid": "minecraft:milk"
         },
         "amount": 100
       }
