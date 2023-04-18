@@ -1,5 +1,7 @@
 {
   "values": [
-    "tfc:firepit"
+    "tfc:firepit",
+    "tfc:pot",
+    "tfc:grill"
   ]
 }
