@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "tfc:advanced_shaped_crafting",
   "pattern": [
     "B B",
     "iWi",

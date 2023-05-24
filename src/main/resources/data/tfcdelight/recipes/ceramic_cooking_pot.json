@@ -1,0 +1,26 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+      "item": "tfc:ceramic/pot"
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfcdelight:spoon"
+      }
+    },
+    {
+      "type": "tfc:fluid_item",
+      "fluid_ingredient": {
+        "ingredient": {
+          "tag": "minecraft:water"
+        },
+        "amount": 100
+      }
+    }
+  ],
+  "result": {
+    "item": "tfcdelight:ceramic_cooking_pot"
+  }
+}

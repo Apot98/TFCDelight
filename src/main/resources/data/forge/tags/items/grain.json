@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#tfcs:foods/grains"
+    "#tfc:foods/grains"
   ]
 }
