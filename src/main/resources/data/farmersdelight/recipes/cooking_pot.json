@@ -24,5 +24,7 @@
   },
   "result": {
     "item": "farmersdelight:cooking_pot"
-  }
+  },
+  "input_row": 0,
+  "input_column": 0
 }
