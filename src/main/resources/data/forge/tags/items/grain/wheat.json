@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tfc:food/barley",
+    "tfc:food/maize",
+    "tfc:food/oat",
+    "tfc:food/rice",
+    "tfc:food/rye",
+    "tfc:food/wheat"
+  ]
+}

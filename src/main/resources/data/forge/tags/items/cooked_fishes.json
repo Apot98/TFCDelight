@@ -1,0 +1,11 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "replace": false,
+  "values": [
+    "tfc:food/cooked_bluegill",
+    "tfc:food/cooked_shellfish",
+    "tfc:food/cooked_cod",
+    "tfc:food/cooked_salmon",
+    "tfc:food/cooked_tropical_fish"
+  ]
+}

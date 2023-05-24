@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tfc:food/cooked_chicken",
+    "tfc:food/cooked_duck",
+    "tfc:food/cooked_quail",
+    "tfc:food/cooked_turkey"
+  ]
+}
