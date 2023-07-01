@@ -109,7 +109,7 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
         BlockEntity entity = level.getBlockEntity(pos);
         if (entity instanceof DecayingBlockEntity decaying) {
             int servings = (Integer) state.getValue(this.getServingsProperty());
-            if (servings < this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
+            if (servings == this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
                 Helpers.spawnItem(level, pos, decaying.getStack());
             }
             if (servings == 0 && !Helpers.isBlock(state, newState.getBlock())) {

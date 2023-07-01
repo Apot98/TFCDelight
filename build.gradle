@@ -22,7 +22,7 @@ mixin {
     add sourceSets.main, "tfcdelight.refmap.json"
 }
 
-version = '1.18.2-1.0.0'
+version = '1.18.2-1.0.1'
 group = 'baguchan.tfcdelight' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'TFCDelight'
 
