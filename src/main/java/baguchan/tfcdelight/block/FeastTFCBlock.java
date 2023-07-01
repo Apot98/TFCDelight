@@ -15,6 +15,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -41,7 +42,7 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
         if (!isRotten(level, pos)) {
             if (servings == 0) {
                 level.playSound((Player) null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
-                level.destroyBlock(pos, true);
+                level.removeBlock(pos, false);
                 return InteractionResult.SUCCESS;
             } else {
                 ItemStack serving = this.getServingItem(state);
@@ -107,8 +108,14 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         BlockEntity entity = level.getBlockEntity(pos);
         if (entity instanceof DecayingBlockEntity decaying) {
-            if (!Helpers.isBlock(state, newState.getBlock())) {
+            int servings = (Integer) state.getValue(this.getServingsProperty());
+            if (servings < this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
                 Helpers.spawnItem(level, pos, decaying.getStack());
+            }
+            if (this.hasLeftovers) {
+                if (servings == 0 && !Helpers.isBlock(state, newState.getBlock())) {
+                    Helpers.spawnItem(level, pos, new ItemStack(Items.BOWL));
+                }
             }
         }
 

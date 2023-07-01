@@ -15,18 +15,17 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.RoastChickenBlock;
 import vectorwing.farmersdelight.common.utility.TextUtils;
 
-import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -43,6 +42,7 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
         if (!isRotten(level, pos)) {
             if (servings == 0) {
                 level.playSound((Player) null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
+                level.removeBlock(pos, false);
                 return InteractionResult.SUCCESS;
             } else {
                 ItemStack serving = this.getServingItem(state);
@@ -108,8 +108,12 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         BlockEntity entity = level.getBlockEntity(pos);
         if (entity instanceof DecayingBlockEntity decaying) {
-            if (!Helpers.isBlock(state, newState.getBlock())) {
+            int servings = (Integer) state.getValue(this.getServingsProperty());
+            if (servings < this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
                 Helpers.spawnItem(level, pos, decaying.getStack());
+            }
+            if (servings == 0 && !Helpers.isBlock(state, newState.getBlock())) {
+                Helpers.spawnItem(level, pos, new ItemStack(Items.BOWL));
             }
         }
 
@@ -129,10 +133,5 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
     @Override
     public ExtendedProperties getExtendedProperties() {
         return this.extendedProperties;
-    }
-
-    @Override
-    public List<ItemStack> getDrops(BlockState p_60537_, LootContext.Builder p_60538_) {
-        return super.getDrops(p_60537_, p_60538_);
     }
 }
