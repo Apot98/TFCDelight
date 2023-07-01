@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import vectorwing.farmersdelight.client.gui.CookingPotScreen;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TFCDelight.MODID)
@@ -30,7 +29,9 @@ public class TFCDelight
         MinecraftForge.EVENT_BUS.register(this);
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(modBus);
+        ModBlocks.DELIGHT_BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        ModItems.DELIGHT_ITEMS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModMenus.MENU_TYPES.register(modBus);
     }
