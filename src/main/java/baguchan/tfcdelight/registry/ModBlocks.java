@@ -63,7 +63,7 @@ public class ModBlocks {
 
     private static <T extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<T> block) {
         return () -> {
-            return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties());
+            return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(FarmersDelight.CREATIVE_TAB));
         };
     }
 }

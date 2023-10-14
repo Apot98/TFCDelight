@@ -100,7 +100,7 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
         super.setPlacedBy(level, pos, state, entity, stack);
         BlockEntity var7 = level.getBlockEntity(pos);
         if (var7 instanceof DecayingBlockEntity decaying) {
-            decaying.setStack(stack);
+            decaying.setStack(getServingItem(state));
         }
 
     }
