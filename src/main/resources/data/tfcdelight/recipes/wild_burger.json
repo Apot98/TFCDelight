@@ -1,35 +1,32 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "BBB",
-    "ZZZ",
-    "YXY"
+    " B ",
+    "CMC",
+    " B "
   ],
   "key": {
-    "B": {
+    "M": {
       "type": "tfc:not_rotten",
       "ingredient": {
-        "tag": "tfc:foods/fruits"
+        "tag": "#tfcdelight:wild_meats"
       }
     },
-    "X": {
-      "type": "tfc:not_rotten",
-      "ingredient": {
-        "item": "farmersdelight:pie_crust"
-      }
-    },
-    "Y": {
+    "C": {
       "type": "tfc:not_rotten",
       "ingredient": {
         "item": "tfc:food/cheese"
       }
     },
-    "Z": {
-      "item": "minecraft:sugar"
+    "B": {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "tfc:sandwich_bread"
+      }
     }
   },
   "result": {
-    "item": "farmersdelight:sweet_berry_cheesecake",
+    "item": "tfcdelight:wild_burger",
     "count": 1
   }
 }

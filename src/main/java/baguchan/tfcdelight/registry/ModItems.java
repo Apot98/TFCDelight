@@ -13,4 +13,5 @@ public class ModItems {
     public static final DeferredRegister<Item> DELIGHT_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FarmersDelight.MODID);
 
     public static final RegistryObject<Item> SPOON = ITEMS.register("spoon", () -> new Item(new Item.Properties().tab(TFCItemGroup.MISC)));
+    public static final RegistryObject<Item> WILD_BURGER_SLICE = ITEMS.register("wild_burger_slice", () -> new Item(new Item.Properties().tab(TFCItemGroup.FOOD)));
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "servings=0": {
+      "model": "tfcdelight:block/wild_burger"
+    },
+    "servings=1": {
+      "model": "tfcdelight:block/wild_burger_slice"
+    }
+  }
+}
