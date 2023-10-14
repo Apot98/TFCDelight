@@ -93,7 +93,9 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
     @Override
     public void animateTick(BlockState p_49888_, Level p_49889_, BlockPos p_49890_, Random p_49891_) {
         super.animateTick(p_49888_, p_49889_, p_49890_, p_49891_);
-        p_49889_.addParticle(ParticleTypes.MYCELIUM, (double) p_49890_.getX() + p_49891_.nextDouble(), (double) p_49890_.getY() + p_49891_.nextDouble(), (double) p_49890_.getZ() + p_49891_.nextDouble(), 0.0D, 0.0D, 0.0D);
+        if (isRotten(p_49889_, p_49890_)) {
+            p_49889_.addParticle(ParticleTypes.MYCELIUM, (double) p_49890_.getX() + p_49891_.nextDouble(), (double) p_49890_.getY() + p_49891_.nextDouble(), (double) p_49890_.getZ() + p_49891_.nextDouble(), 0.0D, 0.0D, 0.0D);
+        }
     }
 
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {

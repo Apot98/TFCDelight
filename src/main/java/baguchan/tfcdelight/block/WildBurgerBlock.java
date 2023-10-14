@@ -16,15 +16,16 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.function.Supplier;
 
 public class WildBurgerBlock extends FeastTFCBlock {
-    protected static final VoxelShape[] SHAPES = new VoxelShape[]{Block.box(2, 0, 2, 14, 12, 14), Block.box(2, 0, 2, 8, 12, 14)};
+    protected static final VoxelShape[] SHAPES = new VoxelShape[]{Block.box(2, 0, 2, 8, 12, 14), Block.box(2, 0, 2, 8, 12, 14), Block.box(2, 0, 2, 14, 12, 14)};
 
-    public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, 1);
+    public static final IntegerProperty SERVINGS = IntegerProperty.create("servings", 0, 2);
 
     public WildBurgerBlock(ExtendedProperties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
         super(properties, servingItem, hasLeftovers);
         this.registerDefaultState((BlockState) ((BlockState) ((BlockState) this.stateDefinition.any()).setValue(FACING, Direction.NORTH)).setValue(this.getServingsProperty(), this.getMaxServings()));
 
     }
+
 
     public IntegerProperty getServingsProperty() {
         return SERVINGS;
@@ -39,6 +40,6 @@ public class WildBurgerBlock extends FeastTFCBlock {
     }
 
     public int getMaxServings() {
-        return 1;
+        return 2;
     }
 }

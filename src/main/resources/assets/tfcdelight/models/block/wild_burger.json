@@ -1,5 +1,5 @@
 {
-  "parent": "tfcdelight:block/wild_burger",
+  "parent": "block/block",
   "textures": {
     "0": "tfcdelight:/block/wild_buns_top",
     "2": "tfcdelight:/block/wild_cheese",

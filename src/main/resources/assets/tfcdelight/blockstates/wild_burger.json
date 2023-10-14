@@ -1,10 +1,13 @@
 {
   "variants": {
     "servings=0": {
-      "model": "tfcdelight:block/wild_burger"
+      "model": "tfcdelight:block/wild_burger_slice"
     },
     "servings=1": {
       "model": "tfcdelight:block/wild_burger_slice"
+    },
+    "servings=2": {
+      "model": "tfcdelight:block/wild_burger"
     }
   }
 }
