@@ -2,6 +2,7 @@
   "parent": "block/block",
   "textures": {
     "0": "tfcdelight:/block/wild_buns_top",
+    "1": "tfcdelight:/block/wild_meat",
     "2": "tfcdelight:/block/wild_cheese",
     "particle": "tfcdelight:/block/wild_buns_top"
   },
@@ -162,7 +163,7 @@
             10,
             12
           ],
-          "texture": "#2"
+          "texture": "#1"
         },
         "east": {
           "uv": [
@@ -171,7 +172,7 @@
             10,
             12
           ],
-          "texture": "#2"
+          "texture": "#1"
         },
         "south": {
           "uv": [
@@ -180,7 +181,7 @@
             10,
             12
           ],
-          "texture": "#2"
+          "texture": "#1"
         },
         "west": {
           "uv": [
@@ -189,7 +190,7 @@
             10,
             12
           ],
-          "texture": "#2"
+          "texture": "#1"
         },
         "up": {
           "uv": [
@@ -198,7 +199,7 @@
             10,
             10
           ],
-          "texture": "#2"
+          "texture": "#1"
         },
         "down": {
           "uv": [
@@ -207,7 +208,7 @@
             10,
             10
           ],
-          "texture": "#2"
+          "texture": "#1"
         }
       }
     },
