@@ -1,7 +1,7 @@
 {
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": {
-    "item": "tfcdelight:wild_burger"
+    "item": "tfcdelight:wild_burger_slice"
   },
   "category": "cooked_meat",
   "hunger": 5,

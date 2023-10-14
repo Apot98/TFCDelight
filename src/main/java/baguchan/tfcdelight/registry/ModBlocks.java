@@ -29,7 +29,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> ROAST_CHICKEN = noItemDelightRegister("roast_chicken_block", () -> new RoastChickenTFCBlock(ExtendedProperties.of(Blocks.WHITE_WOOL).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.ROAST_CHICKEN, true));
     public static final RegistryObject<Block> STUFFED_PUMPKIN_BLOCK = noItemDelightRegister("stuffed_pumpkin_block", () -> new FeastTFCBlock(ExtendedProperties.of(Blocks.PUMPKIN).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.STUFFED_PUMPKIN, false));
     public static final RegistryObject<Block> SHEPHERDS_PIE_BLOCK = noItemDelightRegister("shepherds_pie_block", () -> new FeastTFCBlock(ExtendedProperties.of(Blocks.CAKE).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.SHEPHERDS_PIE, true));
-    public static final RegistryObject<Block> WILD_BURGER = register("wild_burger", () -> new WildBurgerBlock(ExtendedProperties.of(Blocks.CAKE).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), ModItems.WILD_BURGER_SLICE, false));
+    public static final RegistryObject<Block> WILD_BURGER = register("wild_burger", () -> new WildBurgerBlock(ExtendedProperties.of(Blocks.CAKE).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), Objects.requireNonNull(ModItems.WILD_BURGER_SLICE), false));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
         RegistryObject<T> register = BLOCKS.register(name, block);
@@ -65,7 +65,7 @@ public class ModBlocks {
 
     private static <T extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<T> block) {
         return () -> {
-            return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties());
+            return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(FarmersDelight.CREATIVE_TAB));
         };
     }
 }

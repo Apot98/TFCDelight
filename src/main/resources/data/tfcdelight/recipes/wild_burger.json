@@ -9,7 +9,7 @@
     "M": {
       "type": "tfc:not_rotten",
       "ingredient": {
-        "tag": "#tfcdelight:wild_meats"
+        "tag": "tfcdelight:wild_meats"
       }
     },
     "C": {
