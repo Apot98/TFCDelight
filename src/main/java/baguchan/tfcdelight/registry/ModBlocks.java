@@ -8,6 +8,7 @@ import baguchan.tfcdelight.block.WildBurgerBlock;
 import net.dries007.tfc.common.blockentities.DecayingBlockEntity;
 import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,6 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.FarmersDelight;
+import vectorwing.farmersdelight.common.block.FeastBlock;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -65,6 +67,10 @@ public class ModBlocks {
 
     private static <T extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<T> block) {
         return () -> {
+            if (Objects.requireNonNull(block.get()) instanceof FeastBlock) {
+                return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().food(Foods.COOKED_PORKCHOP).tab(FarmersDelight.CREATIVE_TAB));
+
+            }
             return new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(FarmersDelight.CREATIVE_TAB));
         };
     }

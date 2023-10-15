@@ -45,28 +45,32 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
                 level.removeBlock(pos, false);
                 return InteractionResult.SUCCESS;
             } else {
-                ItemStack serving = this.getServingItem(state);
+
                 ItemStack heldStack = player.getItemInHand(hand);
-                if (servings > 0) {
-                    if (!serving.hasContainerItem() || heldStack.sameItem(serving.getContainerItem())) {
-                        level.setBlock(pos, (BlockState) state.setValue(this.getServingsProperty(), servings - 1), 3);
-                        if (!player.getAbilities().instabuild && serving.hasContainerItem()) {
-                            heldStack.shrink(1);
+                BlockEntity var7 = level.getBlockEntity(pos);
+                if (var7 instanceof DecayingBlockEntity decaying) {
+                    ItemStack serving = decaying.getStack().copy();
+                    if (servings > 0) {
+                        if (!serving.hasContainerItem() || heldStack.sameItem(serving.getContainerItem())) {
+                            level.setBlock(pos, (BlockState) state.setValue(this.getServingsProperty(), servings - 1), 3);
+                            if (!player.getAbilities().instabuild && serving.hasContainerItem()) {
+                                heldStack.shrink(1);
+                            }
+
+                            if (!player.getInventory().add(serving)) {
+                                player.drop(serving, false);
+                            }
+
+                            if ((Integer) level.getBlockState(pos).getValue(this.getServingsProperty()) == 0 && !this.hasLeftovers) {
+                                level.removeBlock(pos, false);
+                            }
+
+                            level.playSound((Player) null, pos, SoundEvents.ARMOR_EQUIP_GENERIC, SoundSource.BLOCKS, 1.0F, 1.0F);
+                            return InteractionResult.SUCCESS;
                         }
 
-                        if (!player.getInventory().add(serving)) {
-                            player.drop(serving, false);
-                        }
-
-                        if ((Integer) level.getBlockState(pos).getValue(this.getServingsProperty()) == 0 && !this.hasLeftovers) {
-                            level.removeBlock(pos, false);
-                        }
-
-                        level.playSound((Player) null, pos, SoundEvents.ARMOR_EQUIP_GENERIC, SoundSource.BLOCKS, 1.0F, 1.0F);
-                        return InteractionResult.SUCCESS;
+                        player.displayClientMessage(TextUtils.getTranslation("block.feast.use_container", new Object[]{serving.getContainerItem().getHoverName()}), true);
                     }
-
-                    player.displayClientMessage(TextUtils.getTranslation("block.feast.use_container", new Object[]{serving.getContainerItem().getHoverName()}), true);
                 }
 
                 return InteractionResult.PASS;
@@ -103,6 +107,7 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
         BlockEntity var7 = level.getBlockEntity(pos);
         if (var7 instanceof DecayingBlockEntity decaying) {
             decaying.setStack(getServingItem(state));
+            decaying.setStack(this.getServingItem(state));
         }
 
     }
@@ -112,6 +117,7 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
         if (entity instanceof DecayingBlockEntity decaying) {
             int servings = (Integer) state.getValue(this.getServingsProperty());
             if (servings == this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
+                decaying.setStack(new ItemStack(this));
                 Helpers.spawnItem(level, pos, decaying.getStack());
             }
             if (this.hasLeftovers) {
