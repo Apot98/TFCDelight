@@ -107,22 +107,24 @@ public class RoastChickenTFCBlock extends RoastChickenBlock implements EntityBlo
         if (var7 instanceof DecayingBlockEntity decaying) {
             decaying.setStack(getServingItem(state));
             decaying.setStack(this.getServingItem(state));
+            decaying.setStack(FoodCapability.updateFoodFromPrevious(stack, decaying.getStack()));
         }
     }
 
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        BlockEntity entity = level.getBlockEntity(pos);
-        if (entity instanceof DecayingBlockEntity decaying) {
-            int servings = (Integer) state.getValue(this.getServingsProperty());
-            if (servings == this.getMaxServings() && !Helpers.isBlock(state, newState.getBlock())) {
-                decaying.setStack(new ItemStack(this));
-                Helpers.spawnItem(level, pos, decaying.getStack());
-            }
-            if (servings == 0 && !Helpers.isBlock(state, newState.getBlock())) {
-                Helpers.spawnItem(level, pos, new ItemStack(Items.BOWL));
+        if (!Helpers.isBlock(state, newState.getBlock())) {
+            BlockEntity entity = level.getBlockEntity(pos);
+            if (entity instanceof DecayingBlockEntity decaying) {
+                int servings = (Integer) state.getValue(this.getServingsProperty());
+                if (servings == this.getMaxServings()) {
+                    decaying.setStack(FoodCapability.updateFoodFromPrevious(decaying.getStack(), new ItemStack(this)));
+                    Helpers.spawnItem(level, pos, decaying.getStack());
+                } else if (this.hasLeftovers) {
+                    Helpers.spawnItem(level, pos, new ItemStack(Items.BOWL));
+                }
+
             }
         }
-
         super.onRemove(state, level, pos, newState, isMoving);
     }
 
