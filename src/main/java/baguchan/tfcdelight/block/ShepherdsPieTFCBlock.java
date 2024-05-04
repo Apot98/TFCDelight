@@ -12,16 +12,16 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
-public class RoastChickenTFCBlock extends FeastTFCBlock {
+public class ShepherdsPieTFCBlock extends FeastTFCBlock {
     protected static final VoxelShape PLATE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
-    protected static final VoxelShape ROAST_SHAPE = Shapes.joinUnoptimized(PLATE_SHAPE, Block.box(4.0D, 2.0D, 4.0D, 12.0D, 9.0D, 12.0D), BooleanOp.OR);
+    protected static final VoxelShape PIE_SHAPE = Shapes.joinUnoptimized(PLATE_SHAPE, Block.box(2.0D, 2.0D, 2.0D, 14.0D, 8.0D, 14.0D), BooleanOp.OR);
 
-    public RoastChickenTFCBlock(ExtendedProperties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
+    public ShepherdsPieTFCBlock(ExtendedProperties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
         super(properties, servingItem, hasLeftovers);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return state.getValue(SERVINGS) == 0 ? PLATE_SHAPE : ROAST_SHAPE;
+        return state.getValue(SERVINGS) == 0 ? PLATE_SHAPE : PIE_SHAPE;
     }
 }

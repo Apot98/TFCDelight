@@ -12,11 +12,11 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
-public class RoastChickenTFCBlock extends FeastTFCBlock {
+public class HoneyGlazedHamTFCBlock extends FeastTFCBlock {
     protected static final VoxelShape PLATE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
-    protected static final VoxelShape ROAST_SHAPE = Shapes.joinUnoptimized(PLATE_SHAPE, Block.box(4.0D, 2.0D, 4.0D, 12.0D, 9.0D, 12.0D), BooleanOp.OR);
+    protected static final VoxelShape ROAST_SHAPE = Shapes.joinUnoptimized(PLATE_SHAPE, Block.box(4.0D, 2.0D, 4.0D, 12.0D, 10.0D, 12.0D), BooleanOp.OR);
 
-    public RoastChickenTFCBlock(ExtendedProperties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
+    public HoneyGlazedHamTFCBlock(ExtendedProperties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
         super(properties, servingItem, hasLeftovers);
     }
 

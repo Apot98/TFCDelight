@@ -1,0 +1,13 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": {
+    "item": "farmersdelight:honey_glazed_ham_block"
+  },
+  "category": "cooked_meat",
+  "hunger": 5,
+  "saturation": 3,
+  "decay_modifier": 1.5,
+  "grain": 1,
+  "fruit": 2,
+  "protein": 3
+}

@@ -15,13 +15,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+//import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.utility.TextUtils;
@@ -37,15 +38,16 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
         this.extendedProperties = properties;
     }
 
+    @Override
     protected InteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         int servings = (Integer) state.getValue(this.getServingsProperty());
-        if (!isRotten(level, pos)) {
-            if (servings == 0) {
-                level.playSound((Player) null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
-                level.removeBlock(pos, false);
-                return InteractionResult.SUCCESS;
-            } else {
-
+        if (servings == 0) {
+            level.playSound((Player) null, pos, SoundEvents.WOOD_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
+            level.destroyBlock(pos, true);
+            return InteractionResult.SUCCESS;
+        }
+        else {
+            if (!isRotten(level, pos)) {
                 ItemStack heldStack = player.getItemInHand(hand);
                 BlockEntity var7 = level.getBlockEntity(pos);
                 if (var7 instanceof DecayingBlockEntity decaying) {
@@ -75,8 +77,10 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
 
                 return InteractionResult.PASS;
             }
-        } else {
-            return InteractionResult.FAIL;
+            else {
+                player.displayClientMessage(TextUtils.getTranslation("block.feast.rotten", new Object[]{level.getBlockState(pos).getBlock().asItem().getDefaultInstance().getHoverName()}), true);
+                return InteractionResult.PASS;
+            }
         }
     }
 
@@ -106,11 +110,20 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
         super.setPlacedBy(level, pos, state, entity, stack);
         BlockEntity var7 = level.getBlockEntity(pos);
         if (var7 instanceof DecayingBlockEntity decaying) {
-            decaying.setStack(getServingItem(state));
+            //decaying.setStack(getServingItem(state));
             decaying.setStack(this.getServingItem(state));
             decaying.setStack(FoodCapability.updateFoodFromPrevious(stack, decaying.getStack()));
         }
+    }
 
+    @Override
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid)
+    {
+        if (level.getBlockEntity(pos) instanceof DecayingBlockEntity decaying && player.isCreative())
+        {
+            decaying.setStack(ItemStack.EMPTY);
+        }
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
@@ -118,13 +131,10 @@ public class FeastTFCBlock extends FeastBlock implements EntityBlockExtension {
             BlockEntity entity = level.getBlockEntity(pos);
             if (entity instanceof DecayingBlockEntity decaying) {
                 int servings = (Integer) state.getValue(this.getServingsProperty());
-                if (servings == this.getMaxServings()) {
+                if (servings == this.getMaxServings() && !decaying.getStack().isEmpty()) {
                     decaying.setStack(FoodCapability.updateFoodFromPrevious(decaying.getStack(), new ItemStack(this)));
                     Helpers.spawnItem(level, pos, decaying.getStack());
-                } else if (this.hasLeftovers) {
-                    Helpers.spawnItem(level, pos, new ItemStack(Items.BOWL));
                 }
-
             }
         }
         super.onRemove(state, level, pos, newState, isMoving);

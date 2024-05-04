@@ -1,10 +1,7 @@
 package baguchan.tfcdelight.registry;
 
 import baguchan.tfcdelight.TFCDelight;
-import baguchan.tfcdelight.block.CeramicCookingPotBlock;
-import baguchan.tfcdelight.block.FeastTFCBlock;
-import baguchan.tfcdelight.block.RoastChickenTFCBlock;
-import baguchan.tfcdelight.block.WildBurgerBlock;
+import baguchan.tfcdelight.block.*;
 import net.dries007.tfc.common.blockentities.DecayingBlockEntity;
 import net.dries007.tfc.common.blockentities.TFCBlockEntities;
 import net.dries007.tfc.common.blocks.ExtendedProperties;
@@ -28,9 +25,11 @@ public class ModBlocks {
     public static final DeferredRegister<Block> DELIGHT_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FarmersDelight.MODID);
 
     public static final RegistryObject<Block> CERAMIC_POT = register("ceramic_cooking_pot", () -> new CeramicCookingPotBlock());
-    public static final RegistryObject<Block> ROAST_CHICKEN = noItemDelightRegister("roast_chicken_block", () -> new RoastChickenTFCBlock(ExtendedProperties.of(Blocks.WHITE_WOOL).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.ROAST_CHICKEN, true));
-    public static final RegistryObject<Block> STUFFED_PUMPKIN_BLOCK = noItemDelightRegister("stuffed_pumpkin_block", () -> new FeastTFCBlock(ExtendedProperties.of(Blocks.PUMPKIN).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.STUFFED_PUMPKIN, false));
-    public static final RegistryObject<Block> SHEPHERDS_PIE_BLOCK = noItemDelightRegister("shepherds_pie_block", () -> new FeastTFCBlock(ExtendedProperties.of(Blocks.CAKE).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.SHEPHERDS_PIE, true));
+    public static final RegistryObject<Block> ROAST_CHICKEN = noItemDelightRegister("roast_chicken_block", () -> new RoastChickenTFCBlock(ExtendedProperties.of(Blocks.WHITE_WOOL).randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.ROAST_CHICKEN, true));
+    public static final RegistryObject<Block> STUFFED_PUMPKIN_BLOCK = noItemDelightRegister("stuffed_pumpkin_block", () -> new FeastTFCBlock(ExtendedProperties.of(Blocks.PUMPKIN).randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.STUFFED_PUMPKIN, false));
+    public static final RegistryObject<Block> SHEPHERDS_PIE_BLOCK = noItemDelightRegister("shepherds_pie_block", () -> new ShepherdsPieTFCBlock(ExtendedProperties.of(Blocks.CAKE).randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.SHEPHERDS_PIE, true));
+    public static final RegistryObject<Block> HONEY_GLAZED_HAM_BLOCK = noItemDelightRegister("honey_glazed_ham_block", () -> new HoneyGlazedHamTFCBlock(ExtendedProperties.of(Blocks.WHITE_WOOL).randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), vectorwing.farmersdelight.common.registry.ModItems.HONEY_GLAZED_HAM, true));
+    public static final RegistryObject<Block> RICE_ROLL_MEDLEY_BLOCK = noItemDelightRegister("rice_roll_medley_block", () -> new RiceRollMedleyTFCBlock(ExtendedProperties.of(Blocks.CAKE).randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick)));
     public static final RegistryObject<Block> WILD_BURGER = register("wild_burger", () -> new WildBurgerBlock(ExtendedProperties.of(Blocks.CAKE).noDrops().randomTicks().blockEntity(TFCBlockEntities.DECAYING).serverTicks(DecayingBlockEntity::serverTick), Objects.requireNonNull(ModItems.WILD_BURGER_SLICE), false));
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
